@@ -91,8 +91,8 @@ for index, row in special_5.iterrows():
         x = a*(50 + 10*((ak-b)/c))
         special_5_std.append(x)
 
-print(len(special_1_std))
-print(df.shape[0])
+# print(len(special_1_std))
+# print(df.shape[0])
 
 # # 确保插入的数据长度与行数匹配
 # if len(special_1_std) <= (df.shape[0] - 3):  # 减去前三行的行数
