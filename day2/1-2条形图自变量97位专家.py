@@ -14,13 +14,14 @@ ORANGE = '#f6af6b'
 
 COLOR_MAP = {RAW_JSON:GREEN, STD_JSON:PINK, STD_JSON_1:BLUE, STD_JSON_2:ORANGE}
 
-CURRENT_TYPE = STD_JSON_2
+CURRENT_TYPE = STD_JSON
 # 打开JSON文件
 # with open('data_raw.json', 'r') as file:
 with open(CURRENT_TYPE, 'r') as file:
     # 加载JSON数据
     data = json.load(file)
-
+print(data)
+# exit(0)
 experts = []
 avg_score = []
 for expert, scores in data.items():
@@ -33,8 +34,8 @@ for expert, scores in data.items():
 plt.figure(figsize=(12, 6))  # 设置图形大小
 plt.bar(experts, avg_score, color=COLOR_MAP[CURRENT_TYPE])  # 创建条形图
 plt.xlabel('专家编码')  # x轴标签
-plt.ylabel('原始成绩平均分')  # y轴标签
-plt.title('专家原始成绩平均分条形图')  # 图表标题
+plt.ylabel('标准分成绩平均分')  # y轴标签
+plt.title('专家标准分成绩平均分条形图')  # 图表标题
 
 # plt.ylabel('标准分成绩平均分')  # y轴标签
 # plt.title('专家标准分平均分条形图')  # 图表标题
@@ -42,4 +43,5 @@ plt.title('专家原始成绩平均分条形图')  # 图表标题
 # 可选：如果你的专家编码很长，可以使用以下代码进行x轴标签的旋转，以避免重叠
 plt.xticks(rotation=90)
 plt.ylim(30, 100)
+plt.savefig(r'../pictures/专家标准分成绩平均分条形图.png')
 plt.show()  # 显示图表

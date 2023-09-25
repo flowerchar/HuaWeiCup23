@@ -29,9 +29,10 @@ for expert in selected_experts:
     scores = data[expert]
     plt.hist(scores, bins=20, density=True, alpha=0.6, label=expert)
 
-plt.title('不同评委的原始成绩密度图')
+plt.title('方案二-不同评委的标准分成绩密度图')
 plt.xlabel('分数')
 plt.ylabel('频次')
 plt.legend(loc='upper right')
 plt.grid(True)
+plt.savefig(r'../pictures/方案二-不同评委的标准分成绩密度图.png')
 plt.show()
