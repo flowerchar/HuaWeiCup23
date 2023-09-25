@@ -4,7 +4,7 @@ import json
 #显示所有行
 pd.set_option('display.max_rows',None)
 # TODO：修改路径
-df = pd.read_excel(r'./info/数据1.xlsx')
+df = pd.read_excel(r'./info/经过方案一更新标准差后的数据1.xlsx')
 # special_n对应表格第一次评审成绩的专家几(一二三四五)的专家编号
 special_1 = df.iloc[:, [5]][2:]
 special_2 = df.iloc[:, [8]][2:]
@@ -28,6 +28,11 @@ new_merged_dict = {str(key[0]): value for key, value in merged_dict.items()}
 # merged_dict_list_raw是一个字典，键是专家编号，值是该专家对应的每次打出的原始成绩
 # merged_dict_list_avg是一个字典，键是专家编号，值是该专家对应的每次打出的标准差成绩
 merged_dict_list = {key: [] for key in new_merged_dict.keys()}
+# print(merged_dict_list)
+print(type(merged_dict_list))
+with open('data_template.json', "w") as json_file:
+    json.dump(merged_dict_list, json_file)
+exit(0)
 merged_dict_list_raw = deepcopy(merged_dict_list)
 merged_dict_list_avg = deepcopy(merged_dict_list)
 
@@ -54,13 +59,13 @@ for k, v in merged_dict_list.items():
             merged_dict_list_raw[k].append(df.iloc[s5k, 18])
             merged_dict_list_avg[k].append(df.iloc[s5k, 19])
 
-print(len(merged_dict_list_raw))
-print(len(merged_dict_list_avg))
+print(merged_dict_list_raw)
+print(merged_dict_list_avg)
 
 # 放开注释将字典序列化成json持久保存
 # json_string_raw = json.dumps(merged_dict_list_raw)
-# json_string_avg = json.dumps(merged_dict_list_avg)
+json_string_avg = json.dumps(merged_dict_list_avg)
 # with open('data_raw.json', 'w') as json_file:
 #     json_file.write(json_string_raw)
-# with open('data_avg.json', 'w') as json_file:
-#     json_file.write(json_string_avg)
+with open('data_std-经过方案一后的标准分.json', 'w') as json_file:
+    json_file.write(json_string_avg)

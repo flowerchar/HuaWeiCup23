@@ -43,8 +43,8 @@ special_5_std = []
 # print(type(special_1_raw.iloc[0]))
 for index, row in special_1.iterrows():
     for column, value in row.items():
-        # a = formatted_alpha_values.get(value)
-        a = 1
+        a = formatted_alpha_values.get(value)
+        # a = 1
         b = expert_average.get(value)
         c = expert_std_deviation.get(value)
         ak = special_1_raw.iloc[index][0]
@@ -53,8 +53,8 @@ for index, row in special_1.iterrows():
 
 for index, row in special_2.iterrows():
     for column, value in row.items():
-        # a = formatted_alpha_values.get(value)
-        a = 1
+        a = formatted_alpha_values.get(value)
+        # a = 1
         b = expert_average.get(value)
         c = expert_std_deviation.get(value)
         ak = special_2_raw.iloc[index][0]
@@ -63,8 +63,8 @@ for index, row in special_2.iterrows():
 
 for index, row in special_3.iterrows():
     for column, value in row.items():
-        # a = formatted_alpha_values.get(value)
-        a = 1
+        a = formatted_alpha_values.get(value)
+        # a = 1
         b = expert_average.get(value)
         c = expert_std_deviation.get(value)
         ak = special_3_raw.iloc[index][0]
@@ -73,8 +73,8 @@ for index, row in special_3.iterrows():
 
 for index, row in special_4.iterrows():
     for column, value in row.items():
-        # a = formatted_alpha_values.get(value)
-        a = 1
+        a = formatted_alpha_values.get(value)
+        # a = 1
         b = expert_average.get(value)
         c = expert_std_deviation.get(value)
         ak = special_4_raw.iloc[index][0]
@@ -83,8 +83,8 @@ for index, row in special_4.iterrows():
 
 for index, row in special_5.iterrows():
     for column, value in row.items():
-        # a = formatted_alpha_values.get(value)
-        a = 1
+        a = formatted_alpha_values.get(value)
+        # a = 1
         b = expert_average.get(value)
         c = expert_std_deviation.get(value)
         ak = special_5_raw.iloc[index][0]
@@ -94,7 +94,7 @@ for index, row in special_5.iterrows():
 # print(len(special_1_std))
 # print(df.shape[0])
 
-# # 确保插入的数据长度与行数匹配
+# # 确保插入的数据长度与行数匹配  以下代码貌似没用@@@
 # if len(special_1_std) <= (df.shape[0] - 3):  # 减去前三行的行数
 #     start_row = 3  # 从第四行开始插入数据
 #     end_row = start_row + len(special_1_std)  # 结束插入的行数
@@ -107,14 +107,15 @@ for index, row in special_5.iterrows():
 #
 #     print("数据已保存到 output.xlsx")
 # else:
-#     print("插入的数据长度大于可用的行数")
-# df.iloc[2:3+2015, 7] = special_1_std
-# df.iloc[2:3+2015, 10] = special_2_std
-# df.iloc[2:3+2015, 13] = special_3_std
-# df.iloc[2:3+2015, 16] = special_4_std
-# df.iloc[2:3+2015, 18] = special_5_std
-# df.to_excel('output.xlsx', index=False)
-# df.to_excel('output1.xlsx', index=True)
+#     print("插入的数据长度大于可用的行数") @@@
+
+df.iloc[2:3+2015, 7] = special_1_std
+df.iloc[2:3+2015, 10] = special_2_std
+df.iloc[2:3+2015, 13] = special_3_std
+df.iloc[2:3+2015, 16] = special_4_std
+df.iloc[2:3+2015, 18] = special_5_std
+df.to_excel(r'./info/经过方案一更新标准差后的数据1.xlsx', index=False)
+
 print(special_1_std)
 print(special_2_std)
 print(special_3_std)
