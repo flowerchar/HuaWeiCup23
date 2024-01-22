@@ -124,34 +124,34 @@ for (index_1, row_1),(index_2, row_2),(index_3, row_3),(index_4, row_4),(index_5
 # print(score_list_3)
 # print(score_list_4)
 # print(score_list_5)
-sum_index_list = []
+# sum_index_list = []
 abs_error = 0
-# # 计算总和并保存到列表中
-for i in range(len(score_list_1)):
-    total = score_list_1[i] + score_list_2[i] + score_list_3[i] + score_list_4[i] + score_list_5[i]  # 计算总和
-    index = i  # 当前元素的索引
-    sum_index_list.append((total, index, 0))  # 添加到列表中，第三项表示排序前的位置
-
-# 对列表按照第一项（总和）降序排序
-sorted_sum_index_list = sorted(sum_index_list, key=lambda x: x[0], reverse=True)
-
-# 更新排序后的位置信息（第三项）
-for i, item in enumerate(sorted_sum_index_list):
-    item_list = list(item)
-    item_list[2] = i
-    sorted_sum_index_list[i] = tuple(item_list)
-
-# 过滤出第二项小于28的元素并保存到 ultimate_result_list
-ultimate_result_list = [item for item in sorted_sum_index_list if item[1] < 28]
-
-# 打印排序前的前28个元素在排序后的位置
-print("排序前的前28个元素在排序后的位置：")
-for total, index, sorted_index in ultimate_result_list:
-    print(f"元素总和：{total}，排序前的索引：{index+1}，排序后的位置：{sorted_index+1}")
-    abs_error += abs(index - sorted_index)
+# # # 计算总和并保存到列表中
+# for i in range(len(score_list_1)):
+#     total = score_list_1[i] + score_list_2[i] + score_list_3[i] + score_list_4[i] + score_list_5[i]  # 计算总和
+#     index = i  # 当前元素的索引
+#     sum_index_list.append((total, index, 0))  # 添加到列表中，第三项表示排序前的位置
+#
+# # 对列表按照第一项（总和）降序排序
+# sorted_sum_index_list = sorted(sum_index_list, key=lambda x: x[0], reverse=True)
+#
+# # 更新排序后的位置信息（第三项）
+# for i, item in enumerate(sorted_sum_index_list):
+#     item_list = list(item)
+#     item_list[2] = i
+#     sorted_sum_index_list[i] = tuple(item_list)
+#
+# # 过滤出第二项小于28的元素并保存到 ultimate_result_list
+# ultimate_result_list = [item for item in sorted_sum_index_list if item[1] < 28]
+#
+# # 打印排序前的前28个元素在排序后的位置
+# print("排序前的前28个元素在排序后的位置：")
+# for total, index, sorted_index in ultimate_result_list:
+#     print(f"元素总和：{total}，排序前的索引：{index+1}，排序后的位置：{sorted_index+1}")
+#     abs_error += abs(index - sorted_index)
 # 创建一个空列表用于存储总和、索引和排序前的位置
 # sum_index_list = []
-# #
+#
 # # 计算总和并保存到列表中
 # for i in range(len(score_list_1)):
 #     # 从每个列表中去除最大值和最小值（如果有多个最大值或最小值，则舍弃一个）
@@ -207,35 +207,35 @@ for total, index, sorted_index in ultimate_result_list:
 # for median, index, sorted_index in ultimate_result_list:
 #     print(f"元素中位数：{median}，排序前的索引：{index+1}，排序后的位置：{sorted_index+1}")
 #     abs_error += abs(index - sorted_index)
-# sum_index_list = []
-#
-# # 计算总和并保存到列表中
-# for i in range(len(score_list_1)):
-#     values = [score_list_1[i], score_list_2[i], score_list_3[i], score_list_4[i], score_list_5[i]]  # 五个数值
-#     max_value = max(values)  # 最大值
-#     min_value = min(values)  # 最小值
-#     other_values = sum(values) - max_value - min_value  # 剩余三个值的和
-#     total = (max_value * 1/8) + (min_value * 1/8) + (other_values * 1/4)  # 计算总和
-#     index = i  # 当前元素的索引
-#     sum_index_list.append((total, index, 0))  # 添加到列表中，第三项表示排序前的位置
-#
-# # 对列表按照第一项（总和）降序排序
-# sorted_sum_index_list = sorted(sum_index_list, key=lambda x: x[0], reverse=True)
-#
-# # 更新排序后的位置信息（第三项）
-# for i, item in enumerate(sorted_sum_index_list):
-#     item_list = list(item)
-#     item_list[2] = i
-#     sorted_sum_index_list[i] = tuple(item_list)
-#
-# # 过滤出第二项小于28的元素并保存到 ultimate_result_list
-# ultimate_result_list = [item for item in sorted_sum_index_list if item[1] < 28]
-#
-# # 打印排序前的前28个元素在排序后的位置
-# print("排序前的前28个元素在排序后的位置：")
-# for total, index, sorted_index in ultimate_result_list:
-#     print(f"元素总和：{total}，排序前的索引：{index+1}，排序后的位置：{sorted_index+1}")
-#     abs_error += abs(index - sorted_index)
+sum_index_list = []
+
+# 计算总和并保存到列表中
+for i in range(len(score_list_1)):
+    values = [score_list_1[i], score_list_2[i], score_list_3[i], score_list_4[i], score_list_5[i]]  # 五个数值
+    max_value = max(values)  # 最大值
+    min_value = min(values)  # 最小值
+    other_values = sum(values) - max_value - min_value  # 剩余三个值的和
+    total = (max_value * 1/8) + (min_value * 1/8) + (other_values * 1/4)  # 计算总和
+    index = i  # 当前元素的索引
+    sum_index_list.append((total, index, 0))  # 添加到列表中，第三项表示排序前的位置
+
+# 对列表按照第一项（总和）降序排序
+sorted_sum_index_list = sorted(sum_index_list, key=lambda x: x[0], reverse=True)
+
+# 更新排序后的位置信息（第三项）
+for i, item in enumerate(sorted_sum_index_list):
+    item_list = list(item)
+    item_list[2] = i
+    sorted_sum_index_list[i] = tuple(item_list)
+
+# 过滤出第二项小于28的元素并保存到 ultimate_result_list
+ultimate_result_list = [item for item in sorted_sum_index_list if item[1] < 28]
+
+# 打印排序前的前28个元素在排序后的位置
+print("排序前的前28个元素在排序后的位置：")
+for total, index, sorted_index in ultimate_result_list:
+    print(f"元素总和：{total}，排序前的索引：{index+1}，排序后的位置：{sorted_index+1}")
+    abs_error += abs(index - sorted_index)
 print(abs_error)
 exit(0)
 df.iloc[2:3+2015, 7] = score_list_1
